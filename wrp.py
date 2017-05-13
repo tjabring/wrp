@@ -91,8 +91,8 @@ if sys.platform == "linux" or sys.platform == "linux2":
         from PyQt4.QtNetwork import *
         IsPyQt5 = False
 
-    # claunia: Check how to use this in macOS
-    logging.basicConfig(filename='/dev/stdout', level=logging.WARN, )
+    # changed to standard logging directory and file for automated boot
+    logging.basicConfig(filename='/var/log/wrp.log', level=logging.WARN, )
     logger = logging.getLogger('wrp')
 
     # Class for Website-Rendering. Uses QWebPage, which
