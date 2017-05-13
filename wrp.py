@@ -5,7 +5,10 @@
 # with an imagemap of clickable links. This is an adaptation of previous works by
 # picidae.net and Paul Hammond.
 
-__version__ = "1.4"
+__version__ = "1.4.01"
+
+# test development version for use on a MacIPpi
+# See: http://www.macip.net
 
 #
 # This program is based on the software picidae.py from picidae.net
