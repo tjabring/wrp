@@ -1,0 +1,23 @@
+#!/bin/bash
+
+PIDFILE=/var/run/wrp.pid
+
+case $1 in
+   start)
+       DISPLAY=:1.0
+       export DISPLAY
+       sleep 1
+       /usr/local/bin/wrp11-qt.py &
+       echo `ps ax|grep wrp11-qt.py|grep python|awk '{print $1}'` > ${PIDFILE}
+       echo "Web Rendering Proxy (/usr/local/bin/wrp11-qt.py) started on port 8080 with proces ID `cat ${PIDFILE}`"
+       ;;
+   stop)
+      kill `cat ${PIDFILE}`
+      echo "Web Rendering Proxy (/usr/local/bin/wrp11-qt.py) stopped.... proces ID `cat ${PIDFILE}`"
+      # Now that it's killed, don't forget to remove the PID file
+      rm ${PIDFILE}
+   ;;
+   *)
+      echo "usage: wrp11 {start|stop}" ;;
+esac
+exit 0
