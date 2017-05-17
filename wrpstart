@@ -14,7 +14,6 @@ case $1 in
    stop)
       kill `cat ${PIDFILE}`
       echo "Web Rendering Proxy (/usr/local/bin/wrp11-qt.py) stopped.... proces ID `cat ${PIDFILE}`"
-      # Now that it's killed, don't forget to remove the PID file
       rm ${PIDFILE}
    ;;
    *)
